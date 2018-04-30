@@ -1,7 +1,6 @@
 
 //---general---//
 
-
 //reset
 * {
   box-sizing: border-box;
@@ -40,5 +39,24 @@ section{
     letter-spacing: 0.5em;
   }
 }
+
+.welcome-image{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  .image {
+    border: 5px solid #ffffff;
+    height: 50vh;
+    width: 50vw;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+
+
+
 
 
