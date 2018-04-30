@@ -1,0 +1,44 @@
+
+//---general---//
+
+
+//reset
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #ffffff;
+  background: #232741;
+  display: flex;
+  flex-direction: column;
+}
+
+section{
+  height: 100vh;
+  font-family: 'Russo One', sans-serif;
+}
+
+//---welcome---//
+
+
+#particles-js {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
+    letter-spacing: 0.5em;
+  }
+}
+
+
