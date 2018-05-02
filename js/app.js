@@ -7,7 +7,9 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
     date = $('.date'),
     note = $('.note'),
     image = $('img'),
-    copyright= $('.copyright');
+    copyright= $('.copyright'),
+    button = $('button');
+
 
     //generate present date
     var today = new Date().toISOString().substring(0, 10);
@@ -33,9 +35,12 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
         image.attr("src", data.url)
     }
 
-    loadAPOD()
+    loadAPOD();
 
-
+    note.hide();
+    button.on('click',function () {
+        $(this).next().slideToggle()
+    })
 
 
 

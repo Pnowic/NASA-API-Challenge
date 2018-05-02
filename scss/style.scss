@@ -54,7 +54,8 @@ span {
   height: 100%;
   .APOD-wrapper{
     border: 5px solid #ffffff;
-    width: 60vw;
+    border-radius: 10px;
+    width: 55vw;
     height: 75vh;
     img {
       height: 100%;
@@ -63,11 +64,25 @@ span {
   }
   .note{
     width: 75%;
+    text-align: center;
   }
   > *{
     margin: 3vh 0;
   }
 }
+
+button {
+  font-family: 'Russo One', sans-serif;
+  width: 200px;
+  height: 70px;
+  letter-spacing: 0.2em;
+  border-radius: 10px;
+  outline: none;
+  border: 5px solid #ffffff;
+  background: #232741;
+  color: #ffffff;
+}
+
 
 
 
