@@ -5,7 +5,9 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
     apiKey = 'api_key=YHKB4NTEwjCuLzyD68m3xDsYsM35V1VVL66yAea1',
     title = $('.title'),
     date = $('.date'),
-    image = $('.image');
+    note = $('.note'),
+    image = $('img'),
+    copyright= $('.copyright');
 
     //generate present date
     var today = new Date().toISOString().substring(0, 10);
@@ -26,8 +28,9 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
     function showAPODdata(data) {
         title.text(data.title);
         date.text(data.date);
-        image.css("background-image", 'url("' + data.url + '")')
-
+        copyright.text(data.copyright);
+        note.text(data.explanation);
+        image.attr("src", data.url)
     }
 
     loadAPOD()
