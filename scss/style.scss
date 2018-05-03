@@ -45,6 +45,7 @@ span {
     letter-spacing: 0.5em;
   }
 }
+//APOD
 
 .APOD-data{
   display: flex;
@@ -83,6 +84,33 @@ button {
   background: #232741;
   color: #ffffff;
 }
+
+//Mars
+.mars-gallery{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  button{
+    align-self: center;
+  }
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  list-style: none;
+  li {
+    img {
+      height: 250px;
+      width: 250px;
+      border: 5px solid #ffffff;
+      border-radius: 10px;
+    }
+  }
+}
+
 
 
 

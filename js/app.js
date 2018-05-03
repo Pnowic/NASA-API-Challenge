@@ -1,14 +1,14 @@
 $(function() {
 
-var apodUrl =  'https://api.nasa.gov/planetary/apod?',
-    marsUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&',
-    apiKey = 'api_key=YHKB4NTEwjCuLzyD68m3xDsYsM35V1VVL66yAea1',
-    title = $('.title'),
-    date = $('.date'),
-    note = $('.note'),
-    image = $('img'),
-    copyright= $('.copyright'),
-    button = $('button');
+    var apodUrl =  'https://api.nasa.gov/planetary/apod?',
+        marsUrl = 'https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=1000&',
+        apiKey = 'api_key=YHKB4NTEwjCuLzyD68m3xDsYsM35V1VVL66yAea1',
+        title = $('.title'),
+        date = $('.date'),
+        note = $('.note'),
+        image = $('img'),
+        copyright= $('.copyright'),
+        button = $('button');
 
 
     //generate random date
@@ -19,6 +19,7 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
         return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString().substring(0, 10)
     }
 
+    //APOD + data
 
     function loadAPOD() {
         $.ajax({
@@ -45,8 +46,38 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
     note.hide();
     button.on('click',function () {
         $(this).next().slideToggle()
-    })
+    });
 
 
+    function getMarsPic() {
+        $.ajax({
+            url: marsUrl + apiKey,
+            type: 'GET',
+            dataType: 'json'
+        }).done(function(r) {
+            loadMarsPictures(r);
+        }).fail(function(error) {
+            console.error(error);
+        });
+    }
+
+    
+    function loadMarsPictures (data) {
+        var marsPicture = data.photos,
+            galleryList = $('.mars-gallery ul'),
+            counter = 0;
+
+        for (var i = counter; i < 5; i++) {
+            var li = $('<li>');
+            var img = $('<img>', {
+                src: marsPicture[i].img_src
+            });
+            galleryList.append(li);
+            li.append(img);
+
+        }
+    }
+
+    getMarsPic();
 
 });
