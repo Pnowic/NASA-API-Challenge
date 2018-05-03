@@ -61,7 +61,7 @@ $(function() {
         });
     }
 
-    
+
     function loadMarsPictures (data) {
         var marsPicture = data.photos,
             galleryList = $('.mars-gallery ul'),
