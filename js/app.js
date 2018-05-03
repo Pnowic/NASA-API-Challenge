@@ -11,13 +11,18 @@ var apodUrl =  'https://api.nasa.gov/planetary/apod?',
     button = $('button');
 
 
-    //generate present date
-    var today = new Date().toISOString().substring(0, 10);
-    console.log(today);
+    //generate random date
+    var end = new Date(),
+        start = new Date(2001, 0, 1);
+
+    function randomDate(start, end) {
+        return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime())).toISOString().substring(0, 10)
+    }
+
 
     function loadAPOD() {
         $.ajax({
-            url: apodUrl + apiKey,
+            url: apodUrl + 'date=' + randomDate(start, end)+ '&' + apiKey,
             dataType : 'json'
         }).done(function(response){
             console.log(response);
