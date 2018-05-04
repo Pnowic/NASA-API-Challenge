@@ -87,11 +87,14 @@ button {
 
 //Mars
 .mars-gallery{
+  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  button{
+  button, h1{
     align-self: center;
+    margin: 10vh 0;
   }
 }
 

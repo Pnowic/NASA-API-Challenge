@@ -8,7 +8,8 @@ $(function() {
         note = $('.note'),
         image = $('img'),
         copyright= $('.copyright'),
-        button = $('button');
+        apodButton = $('.APOD-button'),
+        marsButton = $('.mars-button');
 
 
     //generate random date
@@ -44,10 +45,11 @@ $(function() {
     loadAPOD();
 
     note.hide();
-    button.on('click',function () {
+    apodButton.on('click',function () {
         $(this).next().slideToggle()
     });
 
+    //Gallery section
 
     function getMarsPic() {
         $.ajax({
@@ -55,29 +57,34 @@ $(function() {
             type: 'GET',
             dataType: 'json'
         }).done(function(r) {
-            loadMarsPictures(r);
+
+            var marsPicture = r.photos,
+                galleryList = $('.mars-gallery ul'),
+                counter = 0;
+
+            function loadMarsPictures () {
+                for (var i = counter; i < counter + 6; i++) {
+                    var li = $('<li>');
+                    var img = $('<img>', {
+                        src: marsPicture[i].img_src
+                    });
+                    galleryList.append(li);
+                    li.append(img);
+
+                }
+                counter = counter + 6;
+            }
+
+            loadMarsPictures();
+
+            marsButton.on('click', function(){
+                loadMarsPictures()
+            })
+
         }).fail(function(error) {
             console.error(error);
         });
     }
 
-
-    function loadMarsPictures (data) {
-        var marsPicture = data.photos,
-            galleryList = $('.mars-gallery ul'),
-            counter = 0;
-
-        for (var i = counter; i < 5; i++) {
-            var li = $('<li>');
-            var img = $('<img>', {
-                src: marsPicture[i].img_src
-            });
-            galleryList.append(li);
-            li.append(img);
-
-        }
-    }
-
     getMarsPic();
-
 });
