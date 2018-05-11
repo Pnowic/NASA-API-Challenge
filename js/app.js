@@ -25,6 +25,7 @@ $(function() {
     function loadAPOD() {
         $.ajax({
             url: apodUrl + 'date=' + randomDate(start, end)+ '&' + apiKey,
+            type: 'GET',
             dataType : 'json'
         }).done(function(response){
             console.log(response);
