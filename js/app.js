@@ -57,10 +57,10 @@ $(function() {
             url: marsUrl + apiKey,
             type: 'GET',
             dataType: 'json'
-        }).done(function(r) {
+        }).done(function(response) {
 
-            var marsPicture = r.photos,
-                galleryList = $('.mars-gallery ul'),
+            var marsPicture = response.photos,
+                galleryList = $('.mars-gallery .mars-gallery-list'),
                 counter = 0;
 
             function loadMarsPictures () {
