@@ -15,7 +15,6 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  transition: all 0.3s ease;
 }
 
 section{
@@ -90,6 +89,11 @@ button {
   border: 5px solid #ffffff;
   background: #232741;
   color: #ffffff;
+  cursor: pointer;
+  transition: background 0.3s;
+  &:hover {
+    background: #0b0f29;
+  }
 }
 
 
