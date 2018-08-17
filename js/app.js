@@ -8,8 +8,10 @@ $(function() {
         note = $('.note'),
         image = $('img'),
         copyright= $('.copyright'),
-        apodButton = $('.APOD-button'),
+        explanationButton = $('.explanation-button'),
+        newApodButton = $('.APOD-button'),
         marsButton = $('.mars-button');
+
 
 
     //generate random date
@@ -46,9 +48,14 @@ $(function() {
     loadAPOD();
 
     note.hide();
-    apodButton.on('click',function () {
-        $(this).next().slideToggle()
+
+    explanationButton.on('click',function () {
+        note.slideToggle()
     });
+
+    newApodButton.on('click', loadAPOD);
+
+
 
     //Gallery section
 
