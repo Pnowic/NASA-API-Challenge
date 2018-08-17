@@ -58,8 +58,8 @@ span {
   .APOD-wrapper{
     border: 5px solid #ffffff;
     border-radius: 10px;
-    width: 55vw;
-    height: 75vh;
+    min-width: 250px;
+    min-height: 150px;
     img {
       height: 100%;
       width: 100%;
@@ -128,6 +128,37 @@ button {
   }
 }
 
+@media (max-width: 1400px) {
+  .mars-gallery-list li {
+    width: calc(100% / 5);
+  }
+}
+
+@media (max-width: 1000px) {
+  .mars-gallery-list li {
+    width: calc(100% / 4);
+  }
+}
+
+@media (max-width: 750px) {
+  .mars-gallery-list li {
+    width: calc(100% / 3);
+    padding: 5px;
+  }
+  .button-wrapper {
+    flex-direction: column;
+    align-items: center;
+    .APOD-button {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .mars-gallery-list li {
+    width: calc(100% / 2);
+  }
+}
 
 
 
