@@ -10,7 +10,8 @@ $(function() {
         copyright= $('.copyright'),
         explanationButton = $('.explanation-button'),
         newApodButton = $('.APOD-button'),
-        marsButton = $('.mars-button');
+        marsButton = $('.mars-button'),
+        modal = $('.modal');
 
 
 
@@ -55,6 +56,16 @@ $(function() {
 
     newApodButton.on('click', loadAPOD);
 
+    //PopUp
+
+    function showPopUp(src) {
+        modal.css('display', 'flex');
+        modal.find('img').attr('src', src);
+    }
+
+    $('.close').on('click', function () {
+        modal.css('display', 'none');
+    });
 
 
     //Gallery section
@@ -81,6 +92,10 @@ $(function() {
 
                 }
                 counter = counter + 6;
+
+                $('.mars-gallery-list li img').on('click', function() {
+                    showPopUp(this.src);
+                });
             }
 
             loadMarsPictures();
