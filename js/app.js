@@ -67,6 +67,11 @@ $(function() {
         modal.css('display', 'none');
     });
 
+    $('body').on('keydown',function(e){
+        if(e.keyCode === 27){
+            modal.css('display', 'none');
+        }
+    });
 
     //Gallery section
 
