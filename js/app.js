@@ -13,8 +13,6 @@ $(function() {
         marsButton = $('.mars-button'),
         modal = $('.modal');
 
-
-
     //generate random date
     var end = new Date(),
         start = new Date(2001, 0, 1);
